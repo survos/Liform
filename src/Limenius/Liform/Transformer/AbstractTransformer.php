@@ -28,7 +28,7 @@ abstract class AbstractTransformer implements TransformerInterface
     {
     }
 
-    public function isRequired(FormInterface $form): bool
+    public function isRequired(FormInterface $form): ?bool
     {
         return $form->getConfig()->getOption('required');
     }
@@ -59,7 +59,7 @@ abstract class AbstractTransformer implements TransformerInterface
      *
      * @return array
      */
-    protected function addCommonSpecs(FormInterface $form, array $schema, array $extensions = [], $widget = null)
+    protected function addCommonSpecs(FormInterface $form, array $schema, array $extensions = [], ?string $widget = null)
     {
         $schema = $this->addLabel($form, $schema);
         $schema = $this->addAttr($form, $schema);
